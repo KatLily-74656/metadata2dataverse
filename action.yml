@@ -11,6 +11,7 @@ runs:
     - uses: actions/checkout@v2
     - name: Build docker images
       run: docker build -t metadatamapper Dockerfile .
+      shell: bash
     - name: Run tests
       run: docker run metadatamapper
       shell: bash
