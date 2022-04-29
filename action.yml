@@ -13,7 +13,7 @@ runs:
       run: docker build -t metadatamapper .
       shell: bash
     - name: Run tests
-      run: docker run metadatamapper
+      run: docker run metadatamapper &
       shell: bash
     - id: result
       run: |
