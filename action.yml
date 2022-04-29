@@ -13,6 +13,7 @@ runs:
       run: docker build -t metadatamapper Dockerfile .
     - name: Run tests
       run: docker run metadatamapper
+      shell: bash
     - id: result
       run: |
         sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
