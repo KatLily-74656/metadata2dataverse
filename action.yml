@@ -10,7 +10,7 @@ runs:
   steps:
     - uses: actions/checkout@v2
     - name: Build docker images
-      run: docker build -t metadatamapper Dockerfile .
+      run: docker build -t metadatamapper .
       shell: bash
     - name: Run tests
       run: docker run metadatamapper
