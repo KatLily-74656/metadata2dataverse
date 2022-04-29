@@ -1,0 +1,23 @@
+# action.yml
+name: 'MetadataMapper'
+description: 'Start MetadataMapper and make Request'
+outputs:
+  post-result: # id of output
+    description: 'result of the post request'
+    value: ${{ steps.result.outputs.post-result }}
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v2
+    - name: Build docker images
+      run: docker build -t metadatamapper Dockerfile .
+    - name: Run tests
+      run: docker run metadatamapper
+    - id: result
+      run: |
+        sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
+        response=$(curl -s -X POST -H 'Content-Type: application/json' http://localhost:5000/mapping)
+        echo test
+        echo $response
+        echo "::set-output name=post-result::$response"
+      shell: sh
