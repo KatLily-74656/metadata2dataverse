@@ -7,6 +7,8 @@ outputs:
     value: ${{ steps.result.outputs.post-result }}
 runs:
   using: 'composite'
+  services:
+    image: .
   steps:
     - uses: actions/checkout@v2
     - name: Build docker images
@@ -19,5 +21,8 @@ runs:
     - id: result
       run: |
         sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
-        curl -s -X GET http://localhost:5000/mapping
+        response=$(curl -s -X GET -H 'Content-Type: application/json' http://localhost:5000/mapping)
+        echo test2
+        echo $response
+        echo "::set-output name=post-result::$response"
       shell: sh
