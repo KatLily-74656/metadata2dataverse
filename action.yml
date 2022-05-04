@@ -7,8 +7,6 @@ outputs:
     value: ${{ steps.result.outputs.post-result }}
 runs:
   using: 'composite'
-  services:
-    image: .
   steps:
     - uses: actions/checkout@v2
     - name: Start Metadatamapper
