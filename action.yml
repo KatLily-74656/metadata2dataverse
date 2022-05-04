@@ -11,8 +11,8 @@ runs:
     - uses: actions/checkout@v2
     - name: setup python
       uses: actions/setup-python@v2
-        with:
-          python-version: 3.8 #install the python needed
+      with:
+        python-version: 3.8 #install the python needed
       shell: bash
     - name: Start Metadatamapper
       run: |
