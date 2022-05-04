@@ -15,9 +15,9 @@ runs:
     - name: Run tests
       run: |
         docker run metadatamapper &
-        echo test
       shell: bash
     - id: result
       run: |
         sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
+        curl -s -X GET -H 'Content-Type: application/json' http://localhost:5000/mapping
       shell: sh
