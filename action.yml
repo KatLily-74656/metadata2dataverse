@@ -11,13 +11,11 @@ runs:
     image: .
   steps:
     - uses: actions/checkout@v2
-    - name: Build docker images
-      run: docker build -t metadatamapper .
-      shell: bash
-    - name: Run tests
+    - name: Start Metadatamapper
       run: |
-        docker run metadatamapper &
-      shell: bash
+        pip install requirements.txt
+        flask run &
+      shell: sh
     - id: result
       run: |
         sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
