@@ -11,7 +11,8 @@ runs:
     - uses: actions/checkout@v2
     - name: Start Metadatamapper
       run: |
-        pip install requirements.txt
+        pip install -r requirements.txt
+        cd v1
         flask run &
       shell: sh
     - id: result
