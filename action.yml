@@ -17,5 +17,5 @@ runs:
       shell: bash
     - id: result
       run: |
-        echo test
+        sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
       shell: sh
