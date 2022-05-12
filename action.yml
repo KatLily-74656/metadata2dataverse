@@ -30,5 +30,5 @@ runs:
         response=$(curl -s -X GET -H 'Content-Type:application/json' http://localhost:5000/mapping)
         echo test2
         echo $response
-        echo '::set-output name=post-result::$response'
+        echo $(::set-output name=post-result::$response)
       shell: sh
