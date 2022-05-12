@@ -19,7 +19,7 @@ runs:
 #        python --version
 #        python ./v1/__init__.py &
 #      shell: bash
-    - Start MetadataMapper
+    - id: Start MetadataMapper
       run: | 
         docker build -t metadatamapper .
         docker run -e HOST_IP='0.0.0.0' -p 5000:5000/tcp metadatamapper
