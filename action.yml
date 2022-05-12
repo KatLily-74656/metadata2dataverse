@@ -12,6 +12,7 @@ runs:
     - name: Start Metadatamapper
       run: |
         pip install -r requirements.txt
+        python --version
         python ./v1/__init__.py &
       shell: bash
     - id: result
