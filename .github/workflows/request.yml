@@ -3,17 +3,16 @@ on: [push]
 jobs:
   api_request_job:
     runs-on: ubuntu-latest
-    name: A job to make a post request to a simple api
+    name: A job to make a post request to the MetadataMapper
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Metadata Action Step
+      - name: MetadataMapper Action Step
         uses: ./ # Uses an action in the root directory
         id: api
-      # Use the output from the `hello` step
+      # Use the output from the `MetadataMapper` step
       - name: Get the output
         run: |
           echo ${{ steps.api.outputs.post-result }}
-          printf '${{ steps.api.outputs.post-result }}'
