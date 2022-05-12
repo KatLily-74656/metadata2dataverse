@@ -9,6 +9,9 @@ runs:
   using: 'composite'
   steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v3
+      with:
+        python-version: '3.8.x'
     - name: Start Metadatamapper
       run: |
         pip install -r requirements.txt
