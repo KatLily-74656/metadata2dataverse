@@ -22,7 +22,7 @@ runs:
     - name: Start MetadataMapper
       run: | 
         docker build -t metadatamapper .
-        docker run -e HOST_IP='0.0.0.0' -p 5000:5000/tcp metadatamapper
+        docker run -e HOST_IP='0.0.0.0' -p 5000:5000/tcp metadatamapper &
       shell: bash
     - id: result
       run: |
