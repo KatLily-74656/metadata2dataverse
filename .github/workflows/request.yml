@@ -1,4 +1,4 @@
-on: [push]
+on: [release]
 
 jobs:
   api_request_job-1:
