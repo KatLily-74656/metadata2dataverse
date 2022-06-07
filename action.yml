@@ -51,7 +51,7 @@ runs:
       working-directory: ./
       run: |
         echo ${{ inputs.doi }} ${{ inputs.dataverse-url }} 
-        if [ ${{ inputs.api-key }} != '' && ${{ inputs.doi }} != '' && ${{ inputs.dataverse-url }} != '' ]
+        if [ ${{ inputs.api-key }} != '' ] && [ ${{ inputs.doi }} != '' ] && [ ${{ inputs.dataverse-url }} != '' ]
         then
           cat metadata.json
           echo ${{ inputs.doi }} ${{ inputs.dataverse-url }}
@@ -61,7 +61,7 @@ runs:
           echo $response
           echo "::set-output name=post-result::$response"
         else
-          response="Update of dataset in Dataverse was not requested"
+          response="Update of dataset was not requested"
           echo "::set-output name=post-result::$response"
         fi
       shell: sh
