@@ -54,11 +54,8 @@ runs:
         if [ ${{ inputs.api-key }} != '' ] && [ ${{ inputs.doi }} != '' ] && [ ${{ inputs.dataverse-url }} != '' ]
         then
           cat metadata.json
-          echo ${{ inputs.doi }} ${{ inputs.dataverse-url }}
           sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
           response=$(curl -H 'X-Dataverse-key: ${{ inputs.api-key }}' -H 'Content-Type: application/json' -X PUT "${{ inputs.dataverse-url }}/api/datasets/:persistentId/editMetadata/?persistentId=doi:${{ inputs.doi }}&replace=true" --upload-file "metadata.json")
-          echo test
-          echo $response
           echo "::set-output name=post-result::$response"
         else
           response="Update of dataset was not requested"

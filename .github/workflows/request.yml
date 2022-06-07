@@ -3,13 +3,13 @@ on: [push]
 jobs:
   api_request_job-1:
     runs-on: ubuntu-latest
-    name: A job to make a post request to the MetadataMapper
+    name: Request to MetadataMapper
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: MetadataMapper Action Step
+      - name: Metadata2Dataverse Action Step
         uses: ./ # Uses an action in the root directory
         id: api
         with:
@@ -21,13 +21,13 @@ jobs:
           echo ${{ steps.api.outputs.post-result }}
   api_request_job-2:
     runs-on: ubuntu-latest
-    name: A job to make a post request to the MetadataMapper
+    name: Request to MetadataMapper and Update Dataset
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: MetadataMapper Action Step
+      - name: Metadata2Dataverse Action Step
         uses: ./ # Uses an action in the root directory
         id: api
         with:
