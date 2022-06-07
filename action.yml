@@ -47,7 +47,7 @@ runs:
         printf "$response" > metadata.json
       shell: sh
     - name: Make Edit-Request to existing Dataverse-Dataset
-      if: "${{ inputs.api-key !== '' }} && ${{ inputs.doi !== '' }} && ${{ inputs.dataverse-url !== '' }}"
+      if: ${{ inputs.api-key != '' }} && ${{ inputs.doi != '' }} && ${{ inputs.dataverse-url != '' }}
       id: result
       working-directory: ./
       run: |
