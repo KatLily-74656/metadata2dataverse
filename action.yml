@@ -1,5 +1,5 @@
 # action.yml
-name: 'MetadataMapper'
+name: 'Metadata To Dataverse'
 description: 'Start MetadataMapper and make Request'
 inputs:
   path:  # id of input
@@ -52,6 +52,7 @@ runs:
       working-directory: ./
       run: |
         cat metadata.json
+        echo ${{ inputs.doi }} ${{ inputs.dataverse-url }}
         sudo apt-get update >/dev/null; sudo apt-get install -y curl >/dev/null
         response=$(curl -H 'X-Dataverse-key: ${{ inputs.api-key }}' -H 'Content-Type: application/json' -X PUT "${{ inputs.dataverse-url }}/api/datasets/:persistentId/editMetadata/?persistentId=doi:${{ inputs.doi }}&replace=true" --upload-file "metadata.json")
         echo test
