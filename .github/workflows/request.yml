@@ -1,4 +1,8 @@
-on: [release]
+name: Use "Metadata To Dataverse"-Action
+
+on: 
+  release:
+    types: [created]
 
 jobs:
   api_request_job-1:
