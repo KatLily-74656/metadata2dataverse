@@ -60,6 +60,7 @@ runs:
           echo $response
           echo "::set-output name=post-result::$response"
         else
-          echo "::set-output name=post-result::'No Update Requested'"
+          response="Update of dataset in Dataverse was not requested"
+          echo "::set-output name=post-result::$response"
         fi
       shell: sh
