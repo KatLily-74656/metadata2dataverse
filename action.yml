@@ -50,6 +50,7 @@ runs:
       id: result
       working-directory: ./
       run: |
+        echo ${{ inputs.doi }} ${{ inputs.dataverse-url }} 
         if [ ${{ inputs.api-key }} != '' && ${{ inputs.doi }} != '' && ${{ inputs.dataverse-url }} != '' ]
         then
           cat metadata.json
