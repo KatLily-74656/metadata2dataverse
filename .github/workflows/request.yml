@@ -2,7 +2,7 @@ name: Use "Metadata To Dataverse"-Action
 
 on: 
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   api_request_job-1:
