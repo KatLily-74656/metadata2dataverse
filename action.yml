@@ -61,4 +61,5 @@ runs:
           echo "::set-output name=post-result::$response"
         else
           echo "::set-output name=post-result::'No Update Requested'"
+        fi
       shell: sh
